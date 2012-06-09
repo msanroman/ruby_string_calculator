@@ -1,7 +1,8 @@
 class StringCalculator
 
 		def add(numbers)
-			return numbers.to_i unless numbers.empty?
-			0
+			return numbers.split(',').inject(0) {|sum, number|
+				sum + number.to_i
+			}
 		end
 end

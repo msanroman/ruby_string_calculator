@@ -10,4 +10,8 @@ describe 'String calculator' do
 	it 'Returns the number passed as input for one number' do
 		StringCalculator.new.add('1').should == 1
 	end
+
+	it 'For two numbers separated by comma will return its sum' do
+		StringCalculator.new.add('1,2').should == 3
+	end
 end
