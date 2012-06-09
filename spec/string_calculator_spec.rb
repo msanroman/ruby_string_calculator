@@ -28,4 +28,8 @@ describe 'String calculator' do
 			StringCalculator.new.add("-1,2")
 			}.to raise_error ('Negatives not allowed: ["-1"]')
 	end
+
+	it 'ignores numbers greater than 1000' do
+		StringCalculator.new.add("2,1001").should == 2
+	end
 end

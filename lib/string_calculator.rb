@@ -7,8 +7,15 @@ class StringCalculator
 			negatives = negatives(numbers)
 			raise Exception.new("Negatives not allowed: #{negatives.inspect}") if negatives.any?
 			numbers.inject(0) {|sum, number|
-				sum + number.to_i
+				if is_too_big? number.to_i
+					sum + 0
+				else sum + number.to_i
+				end
 			}
+		end
+
+		def is_too_big? (number)
+			number > 1000
 		end
 
 		def negatives(numbers)
