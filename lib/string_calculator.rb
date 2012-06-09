@@ -3,10 +3,16 @@ class StringCalculator
 		def add(numbers)
 			custom_delimiter = get_custom_delimiter(numbers)
 			regexp = "[,\\\n#{custom_delimiter}]"
-			result = numbers.split(/#{regexp}/).inject(0) {|sum, number|
+			numbers = numbers.split(/#{regexp}/)
+			negatives = negatives(numbers)
+			raise Exception.new("Negatives not allowed: #{negatives.inspect}") if negatives.any?
+			numbers.inject(0) {|sum, number|
 				sum + number.to_i
 			}
-			return result
+		end
+
+		def negatives(numbers)
+			numbers.select{|number| number.to_i < 0}
 		end
 
 		def get_custom_delimiter(numbers)
