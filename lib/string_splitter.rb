@@ -1,6 +1,6 @@
 class StringSplitter
 
-	def split_to_i(string)
+	def split(string)
 		custom_delimiter = get_custom_delimiter(string)
 		regexp = "[,\\\n#{custom_delimiter}]"
 		string = trim_custom_delimiter(string, custom_delimiter)

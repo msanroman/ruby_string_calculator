@@ -7,7 +7,7 @@ class StringCalculator
 	end
 
 	def add(numbers)
-		numbers = NumberCollection.new(@splitter.split_to_i(numbers))
+		numbers = NumberCollection.new(@splitter.split(numbers))
 		negatives = numbers.negatives
 		raise Exception.new("Negatives not allowed: #{negatives.inspect}") if negatives.any?
 		small_enough(numbers).inject(0){|sum, number| sum + number}

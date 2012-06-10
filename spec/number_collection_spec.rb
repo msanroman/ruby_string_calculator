@@ -1,4 +1,3 @@
-$: << File.join(File.dirname(__FILE__), "/../lib")
 require 'number_collection'
 
 describe "NumberCollection" do
