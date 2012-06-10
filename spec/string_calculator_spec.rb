@@ -63,6 +63,10 @@ describe "StringSplitter" do
 	it 'handles delimiters of any size' do
 		@splitter.split_to_i("//[***]\n1***2***3").should == ["1","2","3"]
 	end
+
+	it 'handles multiple delimiters at the same time' do
+		@splitter.split_to_i("//[**][%***%]\n1**2%***%3").should == ["1","2","3"]
+	end
 end
 
 describe "NumberCollection" do
